@@ -3,20 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Wordle Clone</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
 </head>
 <body>
-    <div class="grid">
-        <!-- Your grid cells here -->
+    <h1>Wordle Clone</h1>
+    <div class="grid" id="grid"></div> <!-- Grid for input -->
+    <button id="submitBtn">Enter</button> <!-- Submit button -->
+    <div class="legend"> <!-- Legend for colors -->
+        <h3>Legend:</h3>
+        <div><span class="cell correct"></span> Correct Letter</div>
+        <div><span class="cell present"></span> Present Letter</div>
+        <div><span class="cell absent"></span> Absent Letter</div>
     </div>
-    <button id="enter-button">Enter</button>
-    <div class="legend">
-        <p>Legend:</p>
-        <div><span style="display: inline-block; width: 20px; height: 20px; background-color: green;"></span> Correct letter</div>
-        <div><span style="display: inline-block; width: 20px; height: 20px; background-color: yellow;"></span> Wrong position</div>
-        <div><span style="display: inline-block; width: 20px; height: 20px; background-color: gray;"></span> Incorrect letter</div>
-    </div>
-    <script src="app.js"></script>
+
+    <script>
+        const wordToGuess = "APPLE"; // The word to guess
+        const gridElement = document.getElementById("grid");
+        const submitBtn = document.getElementById("submitBtn");
+        let currentGuess = "";
+
+        // Create grid cells for the input
+        for (let i = 0; i < 6; i++) {
+            for (let j = 0; j < 5; j++) {
+                const cell = document.createElement("div");
+                cell.classList.add("cell");
+                gridElement.appendChild(cell);
+            }
+        }
+
+        // Listen for the submit button click
+        submitBtn.addEventListener("click", () => {
+            // Get the current row of cells
+            const cells = document.querySelectorAll(".grid .cell");
+            const currentRow = Array.from(cells).slice(currentGuess.length * 5, currentGuess.length * 5 + 5);
+
+            // Check if the guess is correct
+            currentRow.forEach((cell, index) => {
+                const letter = currentGuess[index] ? currentGuess[index].toUpperCase() : "";
+                if (letter === wordToGuess[index]) {
+                    cell.classList.add("correct"); // Correct position
+                } else if (wordToGuess.includes(letter)) {
+                    cell.classList.add("present"); // Present but wrong position
+                } else {
+                    cell.classList.add("absent"); // Absent letter
+                }
+                cell.textContent = letter; // Set cell content to the guessed letter
+            });
+
+            currentGuess = ""; // Reset current guess
+        });
+
+        // Listen for key presses to capture the guess
+        document.addEventListener("keydown", (event) => {
+            if (event.key.length === 1 && event.key.match(/[a-z]/i) && currentGuess.length < 5) {
+                currentGuess += event.key; // Add letter to current guess
+            } else if (event.key === "Backspace") {
+                currentGuess = currentGuess.slice(0, -1); // Remove last letter
+            }
+        });
+    </script>
 </body>
 </html>
