@@ -1,107 +1,76 @@
-/* General body styles */
 body {
-    display: flex;                      /* Use Flexbox for layout */
-    flex-direction: column;            /* Stack elements vertically */
-    justify-content: center;           /* Center vertically */
-    align-items: center;               /* Center horizontally */
-    height: 100vh;                     /* Full viewport height */
-    margin: 0;                         /* Remove default margin */
-    background-color: #f0f0f0;         /* Light background color */
-    font-family: Arial, sans-serif;    /* Font style for the body */
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
 
-/* Title styles */
-h1 {
-    margin-bottom: 20px;               /* Space below the title */
-    color: #333;                       /* Dark color for the title */
+.container {
+    text-align: center;
 }
 
-/* Styles for the grid */
 .grid {
-    display: grid;                     /* Use CSS Grid layout */
-    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
-    gap: 10px;                        /* Space between grid cells */
-    max-width: 320px;                 /* Maximum width of the grid */
-    margin-bottom: 20px;              /* Space for the legend below the grid */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
 }
 
-/* Styles for each cell in the grid */
 .cell {
-    width: 60px;                       /* Fixed width for each cell */
-    height: 60px;                      /* Fixed height for each cell */
-    display: flex;                     /* Center content in cells */
-    justify-content: center;           /* Center horizontally */
-    align-items: center;               /* Center vertically */
-    font-size: 24px;                  /* Font size for letters */
-    border: 2px solid #ccc;           /* Border for the cells */
-    background-color: white;           /* Default background color */
-    transition: background-color 0.3s; /* Smooth background color transition */
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    border: 1px solid #ccc;
+    background-color: white;
+    transition: background-color 0.3s;
 }
 
-/* Styles for the Enter button */
-button {
-    margin-top: 20px;                 /* Space above the button */
-    padding: 10px 20px;               /* Button padding */
-    font-size: 16px;                  /* Font size for the button */
-    cursor: pointer;                   /* Change cursor on hover */
-    background-color: #28a745;        /* Green background */
-    color: white;                     /* White text color */
-    border: none;                     /* Remove default border */
-    border-radius: 5px;               /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth background color transition */
-}
-
-/* Button hover effect */
-button:hover {
-    background-color: #218838;        /* Darker green on hover */
-}
-
-/* Styles for the legend */
-.legend {
-    margin-top: 20px;                 /* Space above the legend */
-    text-align: left;                 /* Align legend text to the left */
-    font-size: 14px;                  /* Font size for the legend */
-}
-
-/* Styles for the legend color boxes */
-.legend div {
-    display: flex;                    /* Use Flexbox for layout */
-    align-items: center;              /* Center items vertically */
-}
-
-.legend span {
-    display: inline-block;            /* Display as inline block */
-    width: 20px;                     /* Width of the color box */
-    height: 20px;                    /* Height of the color box */
-    margin-right: 5px;               /* Space between color box and text */
-}
-
-/* Color styles for feedback */
 .correct {
-    background-color: #6aaa64;       /* Green for correct letters */
+    background-color: green;
+    color: white;
 }
 
 .present {
-    background-color: #c9b458;       /* Yellow for present letters */
+    background-color: yellow;
+    color: black;
 }
 
 .absent {
-    background-color: #787c7e;       /* Gray for absent letters */
+    background-color: gray;
+    color: white;
 }
 
-/* Responsive styles */
-@media (max-width: 500px) {
-    .cell {
-        width: 40px;                 /* Adjust cell width on small screens */
-        height: 40px;                /* Adjust cell height on small screens */
-        font-size: 20px;             /* Adjust font size on small screens */
-    }
+#guessInput {
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
-    button {
-        width: 100%;                 /* Full width button on small screens */
-    }
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+}
 
-    .grid {
-        max-width: 100%;             /* Full width grid on small screens */
-    }
+#legend {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.legend-item {
+    margin: 0 10px;
+}
+
+.legend-item span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border: 1px solid #000;
 }

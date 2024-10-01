@@ -5,8 +5,8 @@ let currentGuess = ""; // Store the current guess
 
 const gridElement = document.getElementById("grid"); // Get grid element
 const submitBtn = document.getElementById("submitBtn"); // Get submit button
-const messageElement = document.createElement("div"); // Create message element
-document.body.appendChild(messageElement); // Append message element to the body
+const messageElement = document.getElementById("message"); // Get message element
+const guessInput = document.getElementById("guessInput"); // Get input field
 
 // Create grid cells for the input
 for (let i = 0; i < maxAttempts; i++) {
@@ -22,25 +22,22 @@ submitBtn.addEventListener("click", () => {
     if (currentGuess.length === 5) {
         evaluateGuess(currentGuess); // Evaluate the guess if it's 5 letters long
         currentGuess = ""; // Reset current guess
+        guessInput.value = ""; // Clear the input field
     } else {
         alert("Please enter a 5-letter word."); // Alert if guess is not 5 letters
     }
 });
 
 // Listen for key presses to capture the guess
-document.addEventListener("keydown", (event) => {
-    if (event.key.length === 1 && event.key.match(/[a-z]/i) && currentGuess.length < 5) {
-        currentGuess += event.key; // Add letter to current guess
-    } else if (event.key === "Backspace") {
-        currentGuess = currentGuess.slice(0, -1); // Remove last letter
-    }
+guessInput.addEventListener("input", (event) => {
+    currentGuess = event.target.value.toUpperCase(); // Capture user input
 });
 
 // Function to evaluate the guess
 function evaluateGuess(guess) {
-    const cells = document.querySelectorAll(".grid .cell");
+    const cells = document.querySelectorAll(".cell");
     const currentRow = Array.from(cells).slice(currentAttempt * 5, currentAttempt * 5 + 5);
-    const guessArray = guess.toUpperCase().split("");
+    const guessArray = guess.split("");
 
     // Track letters to check for duplicates
     const wordToGuessArray = wordToGuess.split("");
