@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Wordle Clone</title>
     <link rel="stylesheet" href="style.css">
+    <title>Wordle Clone</title>
 </head>
 <body>
-    <div class="game-container">
-        <h1>Wordle Clone</h1>
-        <div class="grid-container" id="grid"></div>
-        <div class="keyboard" id="keyboard"></div>
+    <div class="grid">
+        <!-- Your grid cells here -->
     </div>
-
+    <button id="enter-button">Enter</button>
+    <div class="legend">
+        <p>Legend:</p>
+        <div><span style="display: inline-block; width: 20px; height: 20px; background-color: green;"></span> Correct letter</div>
+        <div><span style="display: inline-block; width: 20px; height: 20px; background-color: yellow;"></span> Wrong position</div>
+        <div><span style="display: inline-block; width: 20px; height: 20px; background-color: gray;"></span> Incorrect letter</div>
+    </div>
     <script src="app.js"></script>
 </body>
 </html>

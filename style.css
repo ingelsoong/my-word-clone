@@ -1,12 +1,31 @@
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-    margin: 0;
-    font-family: Arial, sans-serif;
+    flex-direction: column; /* Arrange elements vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #f0f0f0; /* Optional */
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 10px; /* Space between cells */
+    max-width: 300px; /* Optional: maximum width */
+    margin-bottom: 20px; /* Space for the legend */
+}
+
+button {
+    margin-top: 10px; /* Space above the button */
+    padding: 10px 20px; /* Adjust button padding */
+    width: 100%; /* Full width */
+}
+
+.legend {
+    margin-top: 20px; /* Space above the legend */
+}
+
 
 .game-container {
     text-align: center;
