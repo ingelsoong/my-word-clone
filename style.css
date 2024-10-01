@@ -1,0 +1,70 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+}
+
+.grid-cell {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ddd;
+    text-transform: uppercase;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 60px;
+    background-color: white;
+}
+
+.keyboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    background-color: #ddd;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.key:active {
+    background-color: #bbb;
+}
+
+.correct {
+    background-color: green;
+}
+
+.partial {
+    background-color: orange;
+}
+
+.wrong {
+    background-color: gray;
+}
