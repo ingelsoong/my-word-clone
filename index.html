@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Wordle Clone</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <div class="game-container">
         <h1>Wordle Clone</h1>
-        <div id="grid" class="grid"></div>
-        <input type="text" id="guessInput" maxlength="5" placeholder="Enter your guess" />
-        <button id="submitBtn">Enter</button>
-        <div id="legend">
-            <div class="legend-item"><span class="correct"></span> Correct</div>
-            <div class="legend-item"><span class="present"></span> Present</div>
-            <div class="legend-item"><span class="absent"></span> Absent</div>
-        </div>
-        <div id="message"></div>
+        <div class="grid-container" id="grid"></div>
+        <div class="keyboard" id="keyboard"></div>
     </div>
-    <script src="app.js"></script> <!-- Link to JavaScript file -->
+
+    <script src="app.js"></script>
 </body>
 </html>
