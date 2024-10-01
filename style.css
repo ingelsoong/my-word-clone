@@ -1,89 +1,107 @@
+/* General body styles */
 body {
-    display: flex;
-    flex-direction: column; /* Arrange elements vertically */
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Full viewport height */
-    margin: 0; /* Remove default margin */
-    background-color: #f0f0f0; /* Optional */
+    display: flex;                      /* Use Flexbox for layout */
+    flex-direction: column;            /* Stack elements vertically */
+    justify-content: center;           /* Center vertically */
+    align-items: center;               /* Center horizontally */
+    height: 100vh;                     /* Full viewport height */
+    margin: 0;                         /* Remove default margin */
+    background-color: #f0f0f0;         /* Light background color */
+    font-family: Arial, sans-serif;    /* Font style for the body */
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
-    gap: 10px; /* Space between cells */
-    max-width: 300px; /* Optional: maximum width */
-    margin-bottom: 20px; /* Space for the legend */
-}
-
-button {
-    margin-top: 10px; /* Space above the button */
-    padding: 10px 20px; /* Adjust button padding */
-    width: 100%; /* Full width */
-}
-
-.legend {
-    margin-top: 20px; /* Space above the legend */
-}
-
-
-.game-container {
-    text-align: center;
-}
-
+/* Title styles */
 h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
+    margin-bottom: 20px;               /* Space below the title */
+    color: #333;                       /* Dark color for the title */
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(5, 60px);
-    grid-gap: 10px;
-    margin-bottom: 20px;
+/* Styles for the grid */
+.grid {
+    display: grid;                     /* Use CSS Grid layout */
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 10px;                        /* Space between grid cells */
+    max-width: 320px;                 /* Maximum width of the grid */
+    margin-bottom: 20px;              /* Space for the legend below the grid */
 }
 
-.grid-cell {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #ddd;
-    text-transform: uppercase;
-    font-size: 2rem;
-    text-align: center;
-    line-height: 60px;
-    background-color: white;
+/* Styles for each cell in the grid */
+.cell {
+    width: 60px;                       /* Fixed width for each cell */
+    height: 60px;                      /* Fixed height for each cell */
+    display: flex;                     /* Center content in cells */
+    justify-content: center;           /* Center horizontally */
+    align-items: center;               /* Center vertically */
+    font-size: 24px;                  /* Font size for letters */
+    border: 2px solid #ccc;           /* Border for the cells */
+    background-color: white;           /* Default background color */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
-.keyboard {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+/* Styles for the Enter button */
+button {
+    margin-top: 20px;                 /* Space above the button */
+    padding: 10px 20px;               /* Button padding */
+    font-size: 16px;                  /* Font size for the button */
+    cursor: pointer;                   /* Change cursor on hover */
+    background-color: #28a745;        /* Green background */
+    color: white;                     /* White text color */
+    border: none;                     /* Remove default border */
+    border-radius: 5px;               /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
-.key {
-    width: 40px;
-    height: 40px;
-    background-color: #ddd;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-    font-size: 1.5rem;
-    border: none;
+/* Button hover effect */
+button:hover {
+    background-color: #218838;        /* Darker green on hover */
 }
 
-.key:active {
-    background-color: #bbb;
+/* Styles for the legend */
+.legend {
+    margin-top: 20px;                 /* Space above the legend */
+    text-align: left;                 /* Align legend text to the left */
+    font-size: 14px;                  /* Font size for the legend */
 }
 
+/* Styles for the legend color boxes */
+.legend div {
+    display: flex;                    /* Use Flexbox for layout */
+    align-items: center;              /* Center items vertically */
+}
+
+.legend span {
+    display: inline-block;            /* Display as inline block */
+    width: 20px;                     /* Width of the color box */
+    height: 20px;                    /* Height of the color box */
+    margin-right: 5px;               /* Space between color box and text */
+}
+
+/* Color styles for feedback */
 .correct {
-    background-color: green;
+    background-color: #6aaa64;       /* Green for correct letters */
 }
 
-.partial {
-    background-color: orange;
+.present {
+    background-color: #c9b458;       /* Yellow for present letters */
 }
 
-.wrong {
-    background-color: gray;
+.absent {
+    background-color: #787c7e;       /* Gray for absent letters */
+}
+
+/* Responsive styles */
+@media (max-width: 500px) {
+    .cell {
+        width: 40px;                 /* Adjust cell width on small screens */
+        height: 40px;                /* Adjust cell height on small screens */
+        font-size: 20px;             /* Adjust font size on small screens */
+    }
+
+    button {
+        width: 100%;                 /* Full width button on small screens */
+    }
+
+    .grid {
+        max-width: 100%;             /* Full width grid on small screens */
+    }
 }
